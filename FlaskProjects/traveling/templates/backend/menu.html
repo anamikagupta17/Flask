@@ -1,0 +1,25 @@
+<div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+  <div class="main-menu-content">
+    <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+      {% for row in rows %}
+      {% if row[5]==0 %}
+      <li class=" nav-item"><a href="{{ row[4]}}"><i class="fa fa-home"></i><span class="menu-title" data-i18n="">{{ row[1]}}</span><span class="badge badge badge-primary badge-pill float-right mr-2"></span></a>
+        {% if row[3]==1 %}
+
+        <ul class="menu-content">
+          {% for row1 in rows %}
+          {% if row1[5]==row[0] %}
+          <li><a class="menu-item" href="{{ row1[4]}}">{{ row1[1]}}</a></li>
+          {% endif %}
+
+          {% endfor %}
+
+        </ul>
+        {% endif %}
+
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>

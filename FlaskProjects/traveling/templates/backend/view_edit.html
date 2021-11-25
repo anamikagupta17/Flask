@@ -1,0 +1,130 @@
+{% include "/backend/header.html"  %}
+{% include "/backend/menu.html"  %}
+<div class="app-content content">
+  <div class="content-wrapper">
+
+    <div class="content-body">
+      <!-- Form wizard with number tabs section start -->
+      <section id="number-tabs">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Edit Member</h4>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-h font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <!--p style="color: blue;font-size: 16px;margin-left: 10px;">{{ msg }}</p-->
+
+              <div class="card-content collapse show">
+              
+                <div class="card-body">
+                  <form action="{{url_for('update_member')}}" method="post" class="number-tab-steps wizard-circle">
+<input type="hidden" name="id" value="{{ data[0]}}" />
+                    <fieldset>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="firstName1"> Name :</label>
+                            <input type="text" class="form-control" id="txtname" name="txtname"  value="{{ data[1]}}" required>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="emailAddress1">Father Name :</label>
+                            <input type="text" class="form-control" id="txtfname" name="txtfname" value="{{ data[2]}}" required>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="phoneNumber1">Phone Number :</label>
+                            <input type="tel" class="form-control" id="txtphone" name="txtphone" maxlength="10" value="{{ data[3]}}" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="date1">Date of Birth :</label>
+                            <input type="date" class="form-control" id="txtdob" name="txtdob" value="{{ data[4]}}">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="shortDescription1">Address  :</label>
+                            <textarea name="txtaddress" id="txtaddress"  class="form-control">{{ data[5]}}</textarea>
+                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="eventType1">Gender:</label>
+                            <select class="custom-select form-control" id="ddgender" data-placeholder="Type to search cities"
+                                    name="ddgender">
+                              <option value="Female" {% if data[6]=='Female' %} selected {% endif %}>Female</option>
+                              <option value="Male" {% if data[6]=='Male' %} selected {% endif %}>Male</option>
+                              <option value="Other" {% if data[6]=='Other' %} selected {% endif %}>Other</option>
+
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="firstName1"> Email :</label>
+                            <input type="email" class="form-control" id="txtemail" name="txtemail" value="{{ data[7]}}">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label for="emailAddress1">Qualification:</label>
+                            <select class="custom-select form-control" id="ddqualification" data-placeholder="Type to search cities"
+                                    name="ddqualification">
+                              <option value="High School" {% if data[8]=='High School' %} selected {% endif %}>High School</option>
+                              <option value="Intermediate" {% if data[8]=='Intermediate' %} selected {% endif %}>Intermediate</option>
+                              <option value="Graduation" {% if data[8]=='Graduation' %} selected {% endif %}>Graduation</option>
+                              <option value="Master" {% if data[8]=='Master' %} selected {% endif %}>Master</option>
+
+                            </select>                          </div>
+                        </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="phoneNumber1">Current Status :</label>
+                            <input type="text" class="form-control" id="txtcurrentstatus" name="txtcurrentstatus" value="{{ data[9]}}">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-2">
+                          <input type="submit" class="form-control btn btn-primary " value="Submit">
+
+                        </div><div class="col-md-2">
+                        <input type="reset" class="form-control btn btn-warning " value="Reset">
+                        </div>
+                      </div>
+
+                    </fieldset>
+
+
+                  </form>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Form wizard with vertical tabs section end -->
+    </div>
+  </div>
+</div>
+{% include "/backend/footer.html"  %}
